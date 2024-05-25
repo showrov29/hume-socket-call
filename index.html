@@ -1,0 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Real-Time Hume AI Analysis</title>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const socket = io();
+
+				socket.on("recording_downloaded", (data) => {
+					console.log("Recording downloaded:", data);
+					// Update UI to notify recording is downloaded
+				});
+
+				socket.on("hume_response", (data) => {
+					console.log("Hume AI Response:", data);
+					// Update UI with Hume AI analysis results
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Real-Time Hume AI Analysis</h1>
+		<div id="notifications"></div>
+	</body>
+</html>
